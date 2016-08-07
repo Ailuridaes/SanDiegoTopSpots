@@ -7,12 +7,17 @@
   <title>San Diego Top Spots</title>
 
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>San Diego Top Spots<br>
       <small>Here are some of the top attractions in San Diego.</small>
     </h1>
+  </div>
+
+  <div class="container map-container">
+    <div id="map"></div>
   </div>
 
   <div class="container">
@@ -29,5 +34,8 @@
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="index.js"></script>
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhpKBWvPauyVPMue4AbIsKmjd3-a3SzBA&callback=initMap">
+    </script>
 </body>
 </html>
