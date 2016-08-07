@@ -4,24 +4,20 @@ function initMap() {
     center: {lat: 32.770, lng: -117.156},
     zoom: 10
   });
+  addLocations();
 }
 
-$(function() {
+function addLocations() {
+  var tbody = $("#topspotsTable > tbody");
 
-  $.getJSON("topspots.json", function(data) {
-    var tbody = $("#topspotsTable > tbody");
-
+  $.getJSON("topspots.json", function(data){
     $.each(data, function(index) {
       //construct row and append to table
-      var tr = "<tr>"
-      tr += "<td>" + this.name + "</td><td>" + this.description + "</td>";
-      tr += '<td><button type="button" id="button' + index + '" class="btn btn-primary">Show on Map</button></td></tr>';
+      var button = $('<button type="button" class="btn btn-primary">Show on Map</button>');
+      var tr = $("<tr><td>" + this.name + "</td><td>" + this.description + "</td><td></td></tr>");
+      tr.children().last().append(button);
       tbody.append(tr);
-    });
 
-    //Google Map setup for each location
-    //in separate loop so table construction can finish independent of map initialzation
-    $.each(data, function(index) {
       var location = {lat: this.location[0], lng: this.location[1]};
 
       //add marker to map
@@ -32,11 +28,11 @@ $(function() {
       });
 
       //bind button click event to map zoom
-      $("#button"+index).click(function(){
+      button.click(function(){
         map.panTo(location);
         map.setZoom(14);
+        document.getElementById("map").scrollIntoView();
       });
     });
-
   });
-});
+}
