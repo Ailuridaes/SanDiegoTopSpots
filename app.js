@@ -1,11 +1,12 @@
 (function(){
-  angular.module('app', []);
+  var app = angular.module('app', ['topspotsFactory']);
 
-  angular.module('app').controller('AppController', function($scope, $http){
-    $http.get('topspots.json').success(function(data) {
-      $scope.topspots = data;
+  app.controller('TopspotsController', function(topspots){
+    var ctrl = this;
+    ctrl.topspots = [];
+    topspots.list(function(topspots){
+      ctrl.topspots = topspots.data;
     });
-
   });
 
 })();

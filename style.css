@@ -1,12 +1,11 @@
 .container {
-  margin: auto;
+  margin: 0 auto 2rem auto;
   max-width: 70%;
 }
 
 .secondary{
   color: #777;
   font-weight: normal;
-  margin-bottom: 2em;
 }
 
 @media (max-width: 768px) {
