@@ -1,41 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="app" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>San Diego Top Spots</title>
 
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>San Diego Top Spots<br>
-      <small>Here are some of the top attractions in San Diego.</small>
-    </h1>
+    <h1>San Diego Top Spots</h1>
+    <h3 class="secondary">Here are some of the top attractions in San Diego.</h3>
   </div>
 
-  <div class="container map-container">
-    <div id="map"></div>
-  </div>
-
-  <div class="container">
-    <table id="topspotsTable" class="table table-striped">
+  <div class="container" ng-controller="AppController">
+    <table id="topspotsTable" class="pure-table pure-table-striped pure-table-bordered">
       <thead><tr>
         <th>Name</th>
         <th>Description</th>
         <th>Link</th>
       </tr></thead>
-      <tbody></tbody>
+      <tbody>
+        <tr ng-repeat="spot in topspots">
+          <td>{{spot.name}}</td>
+          <td>{{spot.description}}</td>
+          <td>
+            <a ng-href="https://www.google.com/maps?q={{spot.location[0]}},{{spot.location[1]}}" role="button" class="pure-button pure-button-primary">Open in Google Maps</a>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div>
 
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="index.js"></script>
-  <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=APIKEYGOESHERE&callback=initMap">
-    </script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

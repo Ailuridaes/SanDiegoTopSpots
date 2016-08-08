@@ -1,12 +1,12 @@
 {
-  "name": "TopSpots",
+  "name": "topspots",
   "main": "index.html",
   "authors": [
     "Ailuridaes <ailuridaes@gmail.com>"
   ],
   "description": "Webpage that displays JSON data of top attractions in San Diego",
   "license": "none",
-  "homepage": "",
+  "homepage": "https://github.com/Ailuridaes/SanDiegoTopSpots",
   "private": true,
   "ignore": [
     "**/.*",
@@ -16,7 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "jquery": "^3.1.0"
+    "angular": "angularjs#^1.5.8"
   }
 }
