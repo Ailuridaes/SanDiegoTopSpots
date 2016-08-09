@@ -5,7 +5,7 @@ angular.module('topspotsFactory', [])
       $http({
         method: 'GET',
         url: '/topspots.json'
-      }).then(callback);
+      }).success(callback);
     }
   };
 });

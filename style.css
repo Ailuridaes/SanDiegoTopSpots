@@ -8,6 +8,11 @@
   font-weight: normal;
 }
 
+form textarea {
+  width: 50%;
+  height: 100px;
+}
+
 @media (max-width: 768px) {
   .container{
     max-width: 80%;

@@ -5,8 +5,15 @@
     var ctrl = this;
     ctrl.topspots = [];
     topspots.list(function(topspots){
-      ctrl.topspots = topspots.data;
+      ctrl.topspots = topspots;
     });
+
+    ctrl.newSpot = {};
+
+    ctrl.addTopspot = function() {
+      ctrl.topspots.push(ctrl.newSpot);
+      ctrl.newSpot = {};
+    }
   });
 
 })();
