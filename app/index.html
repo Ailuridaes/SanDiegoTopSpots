@@ -39,7 +39,7 @@
   </div>
 
   <div class="container">
-    <form name="topspotForm" class="pure-form pure-form-stacked" ng-submit="topspotForm.$valid && topspots.addTopspot()" novalidate>
+    <form name="topspotForm" class="pure-form pure-form-stacked" ng-submit="topspotForm.$valid && topspots.addTopspot(topspots.newSpot); topspots.newSpot = {}" novalidate>
       <fieldset>
         <legend>Add your own location to the list!</legend>
         <label for="formName">Name</label><input id="formName" ng-model="topspots.newSpot.name" type="text" required>
